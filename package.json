@@ -1,0 +1,30 @@
+{
+  "name": "underscore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/studiogibbles/Underscore.js-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/studiogibbles/Underscore.js-/issues"
+  },
+  "homepage": "https://github.com/studiogibbles/Underscore.js-#readme",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-mocha-test": "^0.13.2",
+    "load-grunt-tasks": "^3.5.2",
+    "mocha": "^3.1.2",
+    "semistandard": "^9.1.0"
+  }
+}
