@@ -78,7 +78,13 @@ _.uniq = function (list) {
   return result;
 };
 
-
+_.map = function (list, iteratee) {
+  var result = [];
+  this.each(list, function (item) {
+    result.push(iteratee(item));
+  });
+  return result;
+};
 
 if (typeof module !== 'undefined') {
   module.exports = _;

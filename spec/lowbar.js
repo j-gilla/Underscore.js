@@ -163,4 +163,21 @@ describe('_', function () {
       expect(_.uniq(test)).to.eql(ans);
     });
   });
+
+  describe('#map', function () {
+    it('is a function', function (){
+      expect(_.map).to.be.a('function');
+    });
+    it('takes two arguments', function (){
+      expect(_.map.length).to.equal(2);
+    });
+    it('return an array', function (){
+      expect(_.map()).to.eql([]);
+    });
+    it('returns a new array', function (){
+      var test = [1,2,3]
+      var ans = [3,6,9];
+      expect(_.map(test)).to.equal(ans);
+    });
+  });
 });
