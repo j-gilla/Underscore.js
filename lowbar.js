@@ -63,10 +63,16 @@ _.reject = function (list, predicate) {
 };
 
 
-_.uniq = function (arr) {
+_.uniq = function (list) {
   var result = [];
+//filters out any duplicate values from the array
+if (typeof list = 'string') {
+  list = list.split(" "); 
+}
 
+_.filter(list, function (arr) {
 
+});
 
   return result;
 };
@@ -76,5 +82,3 @@ _.uniq = function (arr) {
 if (typeof module !== 'undefined') {
   module.exports = _;
 }
-
-

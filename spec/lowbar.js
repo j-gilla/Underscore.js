@@ -157,8 +157,9 @@ describe('_', function () {
     it('return an array', function (){
       expect(_.uniq()).to.eql([]);
     });
+    it('only works with arrays', function () {
+      var test = 'jack';
+      expect(_.uniq(test)).to.eql(undefined);
+    });
   });
 });
-
-
-
