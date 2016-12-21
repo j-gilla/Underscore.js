@@ -65,15 +65,16 @@ _.reject = function (list, predicate) {
 
 _.uniq = function (list) {
   var result = [];
-//filters out any duplicate values from the array
-if (typeof list = 'string') {
-  list = list.split(" "); 
-}
 
-_.filter(list, function (arr) {
+  if (typeof list === 'string') {
+    list = list.split(" ");
+  }
 
-});
-
+  _.each(list, function (element){
+    if(_.indexOf(result, element) === -1){
+      result.push(element);
+    }
+  });
   return result;
 };
 

@@ -157,9 +157,10 @@ describe('_', function () {
     it('return an array', function (){
       expect(_.uniq()).to.eql([]);
     });
-    it('only works with arrays', function () {
-      var test = 'jack';
-      expect(_.uniq(test)).to.eql(undefined);
+    it('returns correct answer', function () {
+      var test = [1,1,1,2,3];
+      var ans = [1,2,3];
+      expect(_.uniq(test)).to.eql(ans);
     });
   });
 });
