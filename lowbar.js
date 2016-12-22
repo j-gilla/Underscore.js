@@ -85,6 +85,11 @@ _.map = function (list,  callback) {
   return result;
 };
 
+_.pluck = function (list, propertyName){
+  var result = [];
+  return result; 
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }

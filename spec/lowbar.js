@@ -224,7 +224,7 @@ describe('_', function () {
       expect(callTwo.args[0]).to.equal(55);
       expect(callThree.args[0]).to.equal('Mars');
     });
-    it('creates a new array when passed an array ', function () {
+    it('creates a new array when passed an array', function () {
       var testArr = [1,2,3];
       expect(_.map(testArr, _.identity)).to.eql([1,2,3]);
       expect(_.map(testArr, function (x) {
@@ -244,6 +244,18 @@ describe('_', function () {
       expect(_.map(boolArr, function (x) {
         return !x;
       })).to.eql([false,false,true]);
+    });
+  });
+
+  describe('#pluck', function () {
+    it('is a function', function () {
+      expect(_.pluck).to.be.a('function');
+    });
+    it('takes two arguments', function () {
+      expect(_.pluck.length).to.equal(2);
+    });
+    it('returns an array', function () {
+      expect(_.pluck()).to.eql([]);
     });
   });
 });
