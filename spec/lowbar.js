@@ -174,10 +174,38 @@ describe('_', function () {
     it('return an array', function (){
       expect(_.map()).to.eql([]);
     });
-    it('returns a new array', function (){
-      var test = [1,2,3]
-      var ans = [3,6,9];
-      expect(_.map(test)).to.equal(ans);
+    it('callback is called by each item in list', function () {
+      var testArr = [1,2,3];
+      var testFunc = function (item) {
+        return item;
+      };
+      var spy = sinon.spy(testFunc);
+      _.map(testArr, spy);
+      expect(spy.called).to.equal(true);
+      expect(spy.callCount).to.equal(3);
+    });
+    it('passes each value into callback', function () {
+      var testArr = [1,2,3];
+      var testFunc = function (item) {
+        return item;
+      };
+      var spy = sinon.spy(testFunc);
+      _.map(testArr, spy);
+      var callOne = spy.getCall(0);
+      var callTwo = spy.getCall(1);
+      var callThree = spy.getCall(2);
+      expect(callOne.args[0]).to.equal(1);
+      expect(callTwo.args[0]).to.equal(2);
+      expect(callThree.args[0]).to.equal(3);
+    });
+    it('each is called on each item', function () {
+      var testFunc = function (item) {
+        return item;
+      };
+      var spy = sinon.spy(testFunc);
+      _.map(objThree, spy);
+      expect(spy.called).to.equal(true);
+      expect(spy.callCount).to.equal(3);
     });
   });
 });

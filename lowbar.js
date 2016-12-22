@@ -78,10 +78,10 @@ _.uniq = function (list) {
   return result;
 };
 
-_.map = function (list, iteratee) {
+_.map = function (list,  callback) {
   var result = [];
   this.each(list, function (item) {
-    result.push(iteratee(item));
+    result.push(callback (item) );
   });
   return result;
 };
