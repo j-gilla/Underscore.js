@@ -210,7 +210,7 @@ describe('_', function () {
       expect(spy.called).to.equal(true);
       expect(spy.callCount).to.equal(3);
     });
-    it('passes each value of object into iteratee', function () {
+    it('passes each value of object into callback', function () {
       var testObj = {name: 'Elton', age: 55, location: 'Mars'};
       var testFunc = function (item) {
         return item;
@@ -223,6 +223,27 @@ describe('_', function () {
       expect(callOne.args[0]).to.equal('Elton');
       expect(callTwo.args[0]).to.equal(55);
       expect(callThree.args[0]).to.equal('Mars');
+    });
+    it('creates a new array when passed an array ', function () {
+      var testArr = [1,2,3];
+      expect(_.map(testArr, _.identity)).to.eql([1,2,3]);
+      expect(_.map(testArr, function (x) {
+        return x + 1;
+      })).to.eql([2,3,4]);
+    });
+    it('creates a new array when passed an object', function () {
+      var testObj = {name: 'Elton', age: 55, location: 'Mars'};
+      expect(_.map(testObj,_.identity)).to.eql(['Elton', 55, 'Mars']);
+      expect(_.map('jack',function (x) {
+        return x.toUpperCase();
+      })).to.eql(['J','A','C','K']);
+    });
+    it('returns an array of correct booleans', function () {
+      var boolArr = [true,true,false];
+      expect(_.map(boolArr, _.identity)).to.eql([true,true,false]);
+      expect(_.map(boolArr, function (x) {
+        return !x;
+      })).to.eql([false,false,true]);
     });
   });
 });
