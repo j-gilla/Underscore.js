@@ -5,6 +5,8 @@ var sinon = require('sinon');
 
 var _ = require(path.join(__dirname, '..', './lowbar.js'));
 
+
+
 describe('_', function () {
   'use strict';
 
@@ -199,13 +201,28 @@ describe('_', function () {
       expect(callThree.args[0]).to.equal(3);
     });
     it('each is called on each item', function () {
+      var testObj = {name: 'Elton', age: 55, location: 'Mars'};
       var testFunc = function (item) {
         return item;
       };
       var spy = sinon.spy(testFunc);
-      _.map(objThree, spy);
+      _.map(testObj, spy);
       expect(spy.called).to.equal(true);
       expect(spy.callCount).to.equal(3);
+    });
+    it('passes each value of object into iteratee', function () {
+      var testObj = {name: 'Elton', age: 55, location: 'Mars'};
+      var testFunc = function (item) {
+        return item;
+      };
+      var spy  = sinon.spy(testFunc);
+      _.map(testObj, spy);
+      var callOne = spy.getCall(0);
+      var callTwo = spy.getCall(1);
+      var callThree = spy.getCall(2);
+      expect(callOne.args[0]).to.equal('Elton');
+      expect(callTwo.args[0]).to.equal(55);
+      expect(callThree.args[0]).to.equal('Mars');
     });
   });
 });
