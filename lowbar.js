@@ -87,8 +87,17 @@ _.map = function (list,  callback) {
 
 _.pluck = function (list, propertyName){
   var result = [];
-  return result; 
+  for(let i in list){
+    if(list.hasOwnProperty(i)){
+      result += propertyName + list[i];
+    }
+  }
+return result;
 };
+
+
+
+console.log(_.pluck([{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}]))
 
 if (typeof module !== 'undefined') {
   module.exports = _;
