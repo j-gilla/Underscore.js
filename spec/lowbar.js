@@ -285,10 +285,10 @@ describe('_', function () {
     });
     describe('if two arguments', function () {
       it('returns an array with values equal to values in list corresponding to key, or undefined if key has no value', function () {
-        expect(_.pluck([objThree, objFour], 'name')).to.eql(['Chris', 'Paul']);
+        expect(_.pluck([objThree, objFour], 'name')).to.eql(['Jack', 'Dave']);
         expect(_.pluck([objThree, objFour], 'location')).to.eql(['Manchester', 'Sheffield']);
         expect(_.pluck([objThree, objFour], 'email')).to.eql([undefined, undefined]);
-        expect(_.pluck({Chris: objThree, Paul: objFour}, 'name')).to.eql(['Chris', 'Paul']);
+        expect(_.pluck({Jack: objThree, Dave: objFour}, 'name')).to.eql(['Jack', 'Dave']);
         expect(_.pluck(['cat', 'dog', 'frog'], 0)).to.eql(['c', 'd', 'f']);
         expect(_.pluck(['cat', 'dog', 'frog'], 3)).to.eql([undefined, undefined, 'g']);
         expect(_.pluck([[1, 2], [2, 3]], 0)).to.eql([1, 2]);
