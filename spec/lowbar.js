@@ -7,6 +7,15 @@ var _ = require(path.join(__dirname, '..', './lowbar.js'));
 
 
 
+// Test Object
+var objOne = {one: 1, two: 'two'};
+var objTwo = {three: 'three', four: 4};
+var objThree = {name: 'Jack', age: 27, location: 'Kent'};
+var objFour = {name: 'David', age: 70, location: 'Mars'};
+
+
+
+
 describe('_', function () {
   'use strict';
 
@@ -261,10 +270,19 @@ describe('_', function () {
 
   describe('#contains', function () {
     it('is a function', function () {
-      expect(_.pluck).to.be.a('function');
+      expect(_.contains.to.be.a('function');
     });
     it('takes two arguments', function () {
-      expect(_.pluck.length).to.equal(2);
+      expect(_.contains.length).to.equal(2);
+    });
+    describe('if it takes single argument', function () {
+      it('returns false', function () {
+        expect(_.contains(()).to.equal(false);
+        expect(_.contains((3423)).to.equal(false);
+        expect(_.contains(('sasd')).to.equal(false);
+        expect(_.contains((true)).to.equal(false);
+        expect(_.contains((false)).to.equal(false);
+      });
     });
   });
 });
