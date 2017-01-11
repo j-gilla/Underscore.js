@@ -266,6 +266,35 @@ describe('_', function () {
     it('returns an array', function () {
       expect(_.pluck()).to.eql([]);
     });
+    describe('if only one argument (list) and', function () {
+      describe('if list is a', function () {
+        describe('number or boolean', function () {
+          it('returns empty array', function () {
+            expect(_.pluck(1)).to.eql([]);
+            expect(_.pluck(true)).to.eql([]);
+          });
+        });
+        describe('string, object or an array', function () {
+          it('returns an array with undefined values for each value of the object, string or array.', function () {
+            expect(_.pluck([1, 2, 3])).to.eql([undefined, undefined, undefined]);
+            expect(_.pluck('cat')).to.eql([undefined, undefined, undefined]);
+            expect(_.pluck(objThree)).to.eql([undefined, undefined, undefined]);
+          });
+        });
+      });
+    });
+    describe('if two arguments', function () {
+      it('returns an array with values equal to values in list corresponding to key, or undefined if key has no value', function () {
+        expect(_.pluck([objThree, objFour], 'name')).to.eql(['Chris', 'Paul']);
+        expect(_.pluck([objThree, objFour], 'location')).to.eql(['Manchester', 'Sheffield']);
+        expect(_.pluck([objThree, objFour], 'email')).to.eql([undefined, undefined]);
+        expect(_.pluck({Chris: objThree, Paul: objFour}, 'name')).to.eql(['Chris', 'Paul']);
+        expect(_.pluck(['cat', 'dog', 'frog'], 0)).to.eql(['c', 'd', 'f']);
+        expect(_.pluck(['cat', 'dog', 'frog'], 3)).to.eql([undefined, undefined, 'g']);
+        expect(_.pluck([[1, 2], [2, 3]], 0)).to.eql([1, 2]);
+      });
+    });
+  });
   });
 
   describe('#contains', function () {
