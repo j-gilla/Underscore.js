@@ -258,4 +258,13 @@ describe('_', function () {
       expect(_.pluck()).to.eql([]);
     });
   });
+
+  describe('#contains', function () {
+    it('is a function', function () {
+      expect(_.pluck).to.be.a('function');
+    });
+    it('takes two arguments', function () {
+      expect(_.pluck.length).to.equal(2);
+    });
+  });
 });

@@ -89,15 +89,32 @@ _.pluck = function (list, propertyName){
   var result = [];
   for(let i in list){
     if(list.hasOwnProperty(i)){
-      result += propertyName + list[i];
+      result += list[i];
     }
   }
 return result;
 };
 
 
+_.contains =  function (list, value){
+  var result = false;
+  if (Array.isArray(list)) {
+    if(_.indexOf(List, value) !== -1) {
+      result = true;
+    }
+  } else {
+    for (var key in list) {
+      if (list[key] === value) {
+        result = true;
+      }
+    }
+  }
+  return result;
+};
 
-console.log(_.pluck([{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}]))
+console.log(_.contains([1, 2, 3], 3));
+
+
 
 if (typeof module !== 'undefined') {
   module.exports = _;
